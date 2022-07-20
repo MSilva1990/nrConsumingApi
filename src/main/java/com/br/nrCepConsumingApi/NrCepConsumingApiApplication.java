@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 public class NrCepConsumingApiApplication {
 	private static final Logger log = LoggerFactory.getLogger(NrCepConsumingApiApplication.class);
 	private String texto ="";
+	CepRepresentation testeCepR = new CepRepresentation();
 	public static void main(String[] args) {
 		SpringApplication.run(NrCepConsumingApiApplication.class, args);
 	}
@@ -38,7 +39,20 @@ public class NrCepConsumingApiApplication {
 	@PostMapping
 	public void listener(@RequestParam String cep){
 		texto = cep;
-		log.info((texto));
+		testeCepR.setCep(texto);
+//		log.info((texto));
+		log.info("PostMapping ->"+testeCepR.getCep());
 	}
-
+	@PutMapping
+	public void listener2(@RequestParam String cep){
+		log.info("cep antigo: "+testeCepR.getCep());
+		testeCepR.setCep(cep);
+		log.info("cep novo: "+testeCepR.getCep());
+	}
+	@DeleteMapping
+	public void listener3(@RequestParam String cep){
+		log.info("cep antigo: "+testeCepR.getCep());
+		testeCepR.setCep("");
+		log.info("cep novo: "+testeCepR.getCep());
+	}
 }
