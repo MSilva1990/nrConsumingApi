@@ -55,4 +55,8 @@ public class NrCepConsumingApiApplication {
 		testeCepR.setCep("");
 		log.info("cep novo: "+testeCepR.getCep());
 	}
+	@GetMapping("/cep")
+	public String printCep(){
+		return testeCepR.getCep();
+	}
 }
