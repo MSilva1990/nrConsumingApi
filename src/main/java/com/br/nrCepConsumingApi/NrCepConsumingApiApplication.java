@@ -7,12 +7,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
+@EnableScheduling
 public class NrCepConsumingApiApplication {
 	private static final Logger log = LoggerFactory.getLogger(NrCepConsumingApiApplication.class);
 	private String texto ="";
